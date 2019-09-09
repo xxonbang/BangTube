@@ -1,6 +1,10 @@
 {
   "name": "bangtube",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.6.3",
+    "npm": "6.9.0"
+  },
   "description": "Cloning Youtube with Vanilla and NodeJS",
   "author": "xxonbang",
   "dependencies": {
@@ -30,6 +34,7 @@
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
+    "ngrok": "^3.2.5",
     "node-sass": "^4.12.0",
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
@@ -49,7 +54,7 @@
     "build:server": "babel src --out-dir build",
     "copyAll": "xcopy .\\src\\static .\\build\\static\\ /s /y && xcopy .\\src\\views .\\build\\views\\ /s /y",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
-    "prebuild": "rd /s /q build",
+    "prebuild": "rm -rf build",
     "tunnel": "ngrok http 4000",
     "start": "node build/init.js",
     "prestart": "npm run build"
